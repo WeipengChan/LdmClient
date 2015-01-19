@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LdmClient</string>
+    <string name="back">返回</string>
+    <string name="invalid_network_state">网络不正常，请稍后刷新。</string>
+    <string name="no_data_tip">暂无数据，请点击刷新。</string>
+</resources>

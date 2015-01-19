@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="load_more" type="id"/>
+    <item name="pull_to_refresh_progress" type="id"/>
+    <item name="cancel_btn" type="id"/>
+    <item name="text_title_id" type="id"/>
+    <item name="right_text_id" type="id"/>
+    <item name="no_data_text_view_text" type="id"/>
+
+    <item name="title_id" type="id"/>
+    <item name="content_id" type="id"/>
+</resources>
