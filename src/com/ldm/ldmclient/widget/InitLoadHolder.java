@@ -32,6 +32,8 @@ public class InitLoadHolder<T> implements View.OnClickListener, View.OnTouchList
     private Drawable noNetDrawable;
 
     public InitLoadHolder(BaseLoader<T> request, View target) {
+        this.target = target;
+        this.request = request;
         Context context = target.getContext();
         badgeFrame = new BadgeFrame(target);
         RelativeLayout layout = new RelativeLayout(context);
@@ -54,8 +56,6 @@ public class InitLoadHolder<T> implements View.OnClickListener, View.OnTouchList
         request.registerFailObserver(this);
         request.registerLoadObserver(this);
         request.registerParserObserver(this);
-        this.target = target;
-        this.request = request;
     }
 
     @Override
