@@ -25,9 +25,13 @@ public abstract class BaseTBL<T> {
 
     protected ContentValues cv;
 
-    protected BaseTBL(BaseWritableDbHelper helper) {
-        db = helper.getDb();
+    protected BaseTBL(SQLiteDatabase db) {
+        this.db = db;
         cv = new ContentValues();
+    }
+
+    public void add(T t) {
+        if(update(t) < 1 ) insert(t);
     }
 
     public void add(List<T> data) {
@@ -36,7 +40,7 @@ public abstract class BaseTBL<T> {
         db.beginTransaction();
         try {
             for (T t : data) {
-                if(update(t) < 1 ) insert(t);
+                add(t);
             }
             db.setTransactionSuccessful();
         } finally {

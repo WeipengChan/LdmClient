@@ -2,6 +2,7 @@ package com.ldm.ldmclient.db;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import com.ldm.ldmclient.bean.RemoteData;
 
@@ -17,8 +18,8 @@ public class RequestTBL extends BaseTBL<RemoteData> {
     public static final String colData = "data";
     public static final String colHashCode = "url_hash_code";
 
-    public RequestTBL(BaseWritableDbHelper helper) {
-        super(helper);
+    protected RequestTBL(SQLiteDatabase db) {
+        super(db);
     }
 
     public void insert(RemoteData remoteData) {

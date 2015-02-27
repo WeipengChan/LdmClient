@@ -2,13 +2,14 @@ package com.ldm.ldmclient.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.ldm.ldmclient.app.AppManager;
 
 /**
  * client database
  * Created by LDM on 2014/12/23. Email : nightkid-s@163.com
  */
-public class ClientDbHelper extends BaseWritableDbHelper{
+public class ClientDbHelper extends SQLiteOpenHelper{
 
     public static final int VERSION = 1;
     public static final String DATABASE_NAME = "database";
@@ -32,7 +33,7 @@ public class ClientDbHelper extends BaseWritableDbHelper{
 
     private ClientDbHelper(Context context, SQLiteDatabase.CursorFactory factory) {
         super(context, DATABASE_NAME, factory, VERSION);
-        requestTBL = new RequestTBL(this);
+        requestTBL = new RequestTBL(getWritableDatabase());
     }
 
     @Override
@@ -41,18 +42,16 @@ public class ClientDbHelper extends BaseWritableDbHelper{
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-    }
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {}
 
     @Override
-    public void clearAllData() {
-        requestTBL.deleteAll();
+    public synchronized void close() {
+        instance = null;
+        super.close();
     }
 
-    public void closeDb(){
-        close();
-        instance = null;
+    public void clearAllData() {
+        requestTBL.deleteAll();
     }
 
     public String getOfflineData(String url){

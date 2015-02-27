@@ -190,6 +190,7 @@ public class HttpTool {
             HttpEntity resEntity = response.getEntity();
             if (resEntity == null)
                 throw new RuntimeException("返回结果为空");
+            //TODO 要支持文件下载哦
             String result = EntityUtils.toString(resEntity, CHARSET);
             LogUtil.d("http_post_result： ", result == null ? "result == null" : result);
             return result;
