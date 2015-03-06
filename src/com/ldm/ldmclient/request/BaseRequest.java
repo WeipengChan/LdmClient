@@ -5,7 +5,7 @@ import com.ldm.ldmclient.app.EventCode;
 import com.ldm.ldmclient.bean.NameValueParams;
 import com.ldm.ldmclient.bean.Response;
 import com.ldm.ldmclient.exception.FailSessionException;
-import com.ldm.ldmclient.util.HttpTool;
+import com.ldm.ldmclient.util.http.HttpTool;
 import com.ldm.ldmclient.util.LogUtil;
 import com.ldm.ldmclient.util.TestData;
 

@@ -1,7 +1,8 @@
-package com.ldm.ldmclient.util;
+package com.ldm.ldmclient.util.http;
 
 import com.ldm.ldmclient.bean.NameValueParams;
 import com.ldm.ldmclient.exception.TypeMisMatchException;
+import com.ldm.ldmclient.util.LogUtil;
 import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -190,7 +191,6 @@ public class HttpTool {
             HttpEntity resEntity = response.getEntity();
             if (resEntity == null)
                 throw new RuntimeException("返回结果为空");
-            //TODO 要支持文件下载哦
             String result = EntityUtils.toString(resEntity, CHARSET);
             LogUtil.d("http_post_result： ", result == null ? "result == null" : result);
             return result;
