@@ -8,7 +8,7 @@ import com.ldm.ldmclient.adapter.TestPageAdapter;
 import com.ldm.myptr.in.srain.cube.views.ptr.PtrClassicFrameLayout;
 
 /**
- * start here
+ * main activity
  * Created by LDM on 15-1-4. Email : nightkid-s@163.com
  */
 public class MyActivity extends BaseFragmentActivity{
@@ -22,7 +22,7 @@ public class MyActivity extends BaseFragmentActivity{
         ListView listView = (ListView)findViewById(R.id.rotate_header_list_view);
         listView.setVisibility(View.VISIBLE);
 
-        //have a nice trip~
+        //start from here~
         new TestPageAdapter(ptrFrameLayout, listView);
     }
 
